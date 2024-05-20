@@ -17,6 +17,7 @@ import Promociones from "./screens/Promociones";
 import PagoMatrcula1 from "./screens/PagoMatrcula1";
 import PagoMatrcula2 from "./screens/PagoMatrcula2";
 import ConfirmarPago from "./screens/ConfirmarPago";
+import IPhone1314 from './screens/IPhone1314';
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Text, Pressable, TouchableOpacity } from "react-native";
@@ -115,6 +116,8 @@ const App = () => {
               component={ConfirmarPago}
               options={{ headerShown: false }}
             />
+                    <Stack.Screen name="IPhone1314" component={IPhone1314} />
+
           </Stack.Navigator>
         ) : null}
       </NavigationContainer>

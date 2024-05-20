@@ -67,9 +67,14 @@ const SplitBill = () => {
       <Text style={[styles.cuentaEntre, styles.tLayout]}>Cuenta entre:</Text>
       <View style={styles.rectangleParent}>
         <View style={styles.groupChild} />
-        <Text style={[styles.siguiente, styles.siguientePosition]}>
-          SIGUIENTE
-        </Text>
+        <Pressable
+  style={[styles.rectangleParent, styles.groupParentLayout]}
+  onPress={() => navigation.navigate('Iphone1314')}
+>
+  <View style={styles.groupShadowBox} />
+  <Text style={[styles.siguiente, styles.totalTypo]}>SIGUIENTE</Text>
+</Pressable>
+
       </View>
       <View style={styles.frame}>
         <Image

@@ -71,7 +71,7 @@ const AgregarAdri = () => {
       <Text style={[styles.cuentaEntre, styles.tLayout]}>Cuenta entre:</Text>
       <Pressable
         style={styles.rectangleParent}
-        onPress={() => navigation.navigate("")}
+        onPress={() => navigation.navigate("IPhone1314")}
       >
         <View style={styles.groupItem} />
         <Text style={[styles.siguiente, styles.siguientePosition]}>

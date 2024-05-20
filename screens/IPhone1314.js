@@ -1,10 +1,15 @@
 import * as React from "react";
-import { StyleSheet, View, Text, Image, Pressable } from "react-native";
+import { StyleSheet, View, Text, Image, Pressable, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Color, Border, FontFamily, FontSize } from "../GlobalStyles";
 
+
 const IPhone1314 = () => {
   const navigation = useNavigation();
+  const [montoTotal, setMontoTotal] = React.useState('60.00'); // Estado inicial del monto
+
+  // Asegurarte de que el monto es un número antes de dividir
+  const montoDividido = isNaN(parseFloat(montoTotal)) ? '0.00' : (parseFloat(montoTotal) / 3).toFixed(2);
 
   return (
     <View style={[styles.iphone13144, styles.iphoneLayout]}>
@@ -14,7 +19,12 @@ const IPhone1314 = () => {
         <View style={[styles.iphone13145Item, styles.iphone13145Layout]} />
         <View style={[styles.iphone13145Inner, styles.iphone13145Layout]} />
         <Text style={[styles.monto, styles.montoLayout]}>Monto</Text>
-        <Text style={styles.text}>$30.00</Text>
+        <TextInput
+        style={styles.input}
+        value={montoTotal}
+        onChangeText={setMontoTotal}
+        keyboardType="numeric"
+      />
         <Image
           style={styles.image3Icon}
           resizeMode="cover"
@@ -52,7 +62,7 @@ const IPhone1314 = () => {
         </View>
         <Pressable
           style={[styles.rectangleParent, styles.groupParentLayout]}
-          onPress={() => navigation.navigate("Confirmar")}
+          onPress={() => navigation.navigate("ConfirmarPago")}
         >
           <View style={styles.groupShadowBox} />
           <Text style={[styles.siguiente, styles.totalTypo]}>SIGUIENTE</Text>
@@ -60,12 +70,12 @@ const IPhone1314 = () => {
         <View style={[styles.groupParent, styles.groupParentLayout]}>
           <Pressable
             style={[styles.rectangleGroup, styles.groupParentLayout]}
-            onPress={() => navigation.navigate("IPhone1314")}
+            onPress={() => navigation.navigate("ConfirmarPago")}
           >
             <View style={styles.groupShadowBox} />
             <Text style={[styles.total, styles.totalTypo]}>TOTAL</Text>
           </Pressable>
-          <Text style={styles.text1}>$30.00</Text>
+          <Text style={styles.text1}>${montoTotal}</Text>
         </View>
       </View>
       <Pressable
@@ -82,8 +92,8 @@ const IPhone1314 = () => {
       <Text style={[styles.adrianaSalazar, styles.tTypo]}>Adriana Salazar</Text>
       <Text style={[styles.text2, styles.textTypo1]}>8323-8323</Text>
       <Text style={[styles.text3, styles.textTypo1]}>7547-7557</Text>
-      <Text style={[styles.text4, styles.textTypo]}>$10.00</Text>
-      <Text style={[styles.text5, styles.textTypo]}>$10.00</Text>
+      <Text style={[styles.text4, styles.textTypo]}>${montoDividido}</Text>
+      <Text style={[styles.text5, styles.textTypo]}>${montoDividido}</Text>
       <Image
         style={[styles.user36Icon, styles.iconLayout]}
         resizeMode="cover"
@@ -91,7 +101,7 @@ const IPhone1314 = () => {
       />
       <Text style={[styles.t, styles.tTypo]}>Tú</Text>
       <Text style={[styles.text6, styles.textTypo1]}>4123-43124</Text>
-      <Text style={[styles.text7, styles.textTypo]}>$10.00</Text>
+      <Text style={[styles.text7, styles.textTypo]}>${montoDividido}</Text>
       <Image
         style={[styles.user37Icon, styles.iconLayout]}
         resizeMode="cover"
@@ -120,6 +130,15 @@ const styles = StyleSheet.create({
     height: 844,
     backgroundColor: Color.colorWhite,
   },
+  input: {
+    height: 40,
+    width: '15%', // Asegúrate de que el ancho sea suficiente
+    paddingHorizontal: 10,
+    marginTop: 160, // Temporalmente mover el input para asegurar visibilidad
+    alignSelf: 'center', // Centrar en la pantalla para evitar estar fuera de la vista
+    zIndex:1000
+  },
+    
   iphone13145Layout1: {
     width: 390,
     left: 0,

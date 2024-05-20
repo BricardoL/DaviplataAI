@@ -70,7 +70,7 @@ const ConfirmarPago = () => {
         <Text style={styles.gustavo}>Gustavo</Text>
         <Pressable
           style={styles.rectangleGroup}
-          onPress={() => navigation.navigate("Inicio")}
+          onPress={() => navigation.navigate("Inicio1")}
         >
           <View style={styles.groupItemShadowBox} />
           <Text style={styles.inicio}>INICIO</Text>
@@ -83,8 +83,13 @@ const ConfirmarPago = () => {
         <View style={styles.groupShadowBox} />
         <Text style={styles.gustavo}>Gustavo</Text>
         <View style={styles.rectangleGroup}>
+        <Pressable
+          style={styles.rectangleGroup}
+          onPress={() => navigation.navigate("Inicio1")}
+        >
           <View style={styles.groupItemShadowBox} />
           <Text style={styles.inicio}>INICIO</Text>
+          </Pressable>
         </View>
         <Text style={[styles.tuDineroEst, styles.tuDineroEstTypo]}>
           Tu dinero está en el lugar correcto
